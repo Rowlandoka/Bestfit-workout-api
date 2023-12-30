@@ -21,4 +21,4 @@ This project fully implement the architecture using the following technologies: 
 
 You can learn more in the [BestFit-workout-api App documentation](http://localhost:3000/api/v1/docs/#/Workouts/get_api_v1_workouts).
 
-To learn React, check out the [Swagger documentation](https://swagger.io/solutions/api-documentation/).
+To learn more about Swagger OpenAPI, check out the [Swagger documentation](https://swagger.io/solutions/api-documentation/).
