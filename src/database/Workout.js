@@ -14,7 +14,7 @@ const { saveToDatabase } = require('./utils');
  *           example: 61dbae02-c147-4e28-863c-db7bd402b2d6
  *         name:
  *           type: string
- *           example: Tommy V
+ *           example: Frederick Mark
  *         mode:
  *           type: string
  *           example: For Time
@@ -30,10 +30,10 @@ const { saveToDatabase } = require('./utils');
  *           example: ["21 thrusters", "12 rope climbs, 15 ft", "15 thrusters", "9 rope climbs, 15 ft", "9 thrusters", "6 rope climbs, 15 ft"]
  *         createdAt:
  *           type: string
- *           example: 4/20/2022, 2:21:56 PM
+ *           example: 12/21/2023, 2:21:56 PM
  *         updatedAt:
  *           type: string
- *           example: 4/20/2022, 2:21:56 PM
+ *           example: 12/21/2023, 2:21:56 PM
  *         trainerTips:
  *           type: array
  *           items:
