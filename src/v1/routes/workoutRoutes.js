@@ -52,50 +52,7 @@ const cache = apicache.middleware;
  *                       example: "Some error message"
  */
 
-/**
- * @openapi
- * /api/v1/workouts:
- *   post:
- *     tags:
- *       - Workouts
- *     parameters:
- *       - in: query
- *         name: mode
- *         schema:
- *           type: string
- *         description: Create a new workout
- *     responses:
- *       200:
- *         description: OK
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                   example: OK
- *                 data:
- *                   type: array
- *                   items:
- *                     $ref: "#/components/schemas/Workout"
- *       5XX:
- *         description: FAILED
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                   example: FAILED
- *                 data:
- *                   type: object
- *                   properties:
- *                     error:
- *                       type: string
- *                       example: "Some error message"
- */
+router.get('/', cache('2 minutes'), workoutController.getAllWorkouts);
 
 /**
  * @openapi
@@ -141,6 +98,100 @@ const cache = apicache.middleware;
  *                       type: string
  *                       example: "Some error message"
  */
+router.get('/:workoutId', workoutController.getOneWorkout);
+
+/**
+ * @openapi
+ * /api/v1/workouts/{workoutId}/records:
+ *   get:
+ *     tags:
+ *       - Workouts
+ *     parameters:
+ *       - in: query
+ *         name: mode
+ *         schema:
+ *           type: string
+ *         description: Get records of all workouts
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: OK
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     $ref: "#/components/schemas/Workout"
+ *       5XX:
+ *         description: FAILED
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: FAILED
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     error:
+ *                       type: string
+ *                       example: "Some error message"
+ */
+router.get('/:workoutId/records', recordController.getRecordForWorkout);
+
+/**
+ * @openapi
+ * /api/v1/workouts:
+ *   post:
+ *     tags:
+ *       - Workouts
+ *     parameters:
+ *       - in: query
+ *         name: mode
+ *         schema:
+ *           type: string
+ *         description: Create a new workout
+ *     responses:
+ *       201:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: OK
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     $ref: "#/components/schemas/Workout"
+ *       5XX:
+ *         description: FAILED
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: FAILED
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     error:
+ *                       type: string
+ *                       example: "Some error message"
+ */
+
+router.post('/', workoutController.createNewWorkout);
 
 /**
  * @openapi
@@ -187,6 +238,8 @@ const cache = apicache.middleware;
  *                       example: "Some error message"
  */
 
+router.patch('/:workoutId', workoutController.updateOneWorkout);
+
 /**
  * @openapi
  * /api/v1/workouts/{workoutId}:
@@ -231,61 +284,6 @@ const cache = apicache.middleware;
  *                       type: string
  *                       example: "Some error message"
  */
-
-/**
- * @openapi
- * /api/v1/workouts/{workoutId}/records:
- *   get:
- *     tags:
- *       - Workouts
- *     parameters:
- *       - in: query
- *         name: mode
- *         schema:
- *           type: string
- *         description: Get records of all workouts
- *     responses:
- *       200:
- *         description: OK
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                   example: OK
- *                 data:
- *                   type: array
- *                   items:
- *                     $ref: "#/components/schemas/Workout"
- *       5XX:
- *         description: FAILED
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                   example: FAILED
- *                 data:
- *                   type: object
- *                   properties:
- *                     error:
- *                       type: string
- *                       example: "Some error message"
- */
-router.get('/', cache('2 minutes'), workoutController.getAllWorkouts);
-
-router.get('/:workoutId', workoutController.getOneWorkout);
-
-router.get('/:workoutId/records', recordController.getRecordForWorkout);
-
-router.post('/', workoutController.createNewWorkout);
-
-router.patch('/:workoutId', workoutController.updateOneWorkout);
-
 router.delete('/:workoutId', workoutController.deleteOneWorkout);
 
 module.exports = router;

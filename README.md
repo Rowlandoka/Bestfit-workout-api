@@ -26,30 +26,30 @@ npm run dev
 
 This API currently provides a Workouts resource only. It corresponds to the `/workouts` endpoints. You can use POST and DELETE with this route, but no changes are actually made to the JSONPlaceholder data, and none of your data is stored. See the [usage examples](#usage-examples) to start experimenting!
 
-## Sample JSONPlaceholder User
+## Sample BestFit Workout API Workouts
 
 ```sh
 {
-			"id": "61dbae02-c147-4e28-863c-db7bd402b2d6",
-			"name": "Fredrick Mark",
-			"mode": "For Time",
-			"equipment": ["barbell", "rope"],
-			"exercises": [
-				"21 thrusters",
-				"12 rope climbs, 15 ft",
-				"15 thrusters",
-				"9 rope climbs, 15 ft",
-				"9 thrusters",
-				"6 rope climbs, 15 ft"
-			],
-			"createdAt": "12/21/2023, 2:21:56 PM",
-			"updatedAt": "12/21/2023, 2:21:56 PM",
-			"trainerTips": [
-				"Split the 21 thrusters as needed",
-				"Try to do the 9 and 6 thrusters unbroken",
-				"RX Weights: 115lb/75lb"
-			]
-		}
+	"id": "61dbae02-c147-4e28-863c-db7bd402b2d6",
+	"name": "Fredrick Mark",
+	"mode": "For Time",
+	"equipment": ["barbell", "rope"],
+	"exercises": [
+		"21 thrusters",
+		"12 rope climbs, 15 ft",
+		"15 thrusters",
+		"9 rope climbs, 15 ft",
+		"9 thrusters",
+		"6 rope climbs, 15 ft"
+	],
+	"createdAt": "12/21/2023, 2:21:56 PM",
+	"updatedAt": "12/21/2023, 2:21:56 PM",
+	"trainerTips": [
+		"Split the 21 thrusters as needed",
+		"Try to do the 9 and 6 thrusters unbroken",
+		"RX Weights: 115lb/75lb"
+	]
+ }
 ```
 
 ## Usage Examples
