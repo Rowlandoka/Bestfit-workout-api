@@ -1,24 +1,97 @@
-# BestFit-workout-api
+# BestFit Workout API
 
-# Getting Started with BestFit-workout-api
+BestFit Workout is a REST API application made with Express and Nodejs. It seek to enable gym owners manage daily workouts, incorporating exercise from different sports and activitites.It retrieves workout data from [db.json] a local database created for this project, it also implemented the CRUD functionality by enabling owners create, read, update and delete workouts.
 
-As part of the final requirement and to mark the end of a glorious journey into the world of software engineering with ALX, I would be building a REST API for a BestFit Training Application. It is a competitive sport that combine high-intensity daily workouts with elements from several sports. I would seek to fully implement the CRUD functionality such as Create, Read, Update and Delete WOD's - (Workouts Of the Day). This is aimed at helping users such as gym owners develop daily workout plans and maintain their own workouts inside a single application.
+## Installation
 
-## Available Scripts
+First, clone the repository:
 
-In the project directory, you can run:
+```sh
+git clone https://github.com/Rowlandoka/Bestfit-workout-api test-api
 
-### `npm run dev`
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000/workouts](http://localhost:3000/workouts) to view it in the browser.
+Replace `test-api` with the directory name of your choosing.
 
-## Technology Used:
+Next, run the following commands to start the Express server:
 
-This project fully implement the architecture using the following technologies: JavaScript, Node.js, Express.js and some Backend Architecture to fully implement the designs.
+```sh
+cd test-api
+npm install
+npm run dev
 
-## Learn More About BestFit-workout-api
+```
 
-You can learn more in the [BestFit-workout-api App documentation](http://localhost:3000/api/v1/docs/#/Workouts/get_api_v1_workouts).
+**Navigate** to `localhost:3000/workouts` to see the API. You should see workouts data from `db.json` a local database for this project.
 
-To learn more about Swagger OpenAPI, check out the [Swagger documentation](https://swagger.io/solutions/api-documentation/).
+This API currently provides a Workouts resource only. It corresponds to the `/workouts` endpoints. You can use POST and DELETE with this route, but no changes are actually made to the JSONPlaceholder data, and none of your data is stored. See the [usage examples](#usage-examples) to start experimenting!
+
+## Sample JSONPlaceholder User
+
+```sh
+{
+			"id": "61dbae02-c147-4e28-863c-db7bd402b2d6",
+			"name": "Fredrick Mark",
+			"mode": "For Time",
+			"equipment": ["barbell", "rope"],
+			"exercises": [
+				"21 thrusters",
+				"12 rope climbs, 15 ft",
+				"15 thrusters",
+				"9 rope climbs, 15 ft",
+				"9 thrusters",
+				"6 rope climbs, 15 ft"
+			],
+			"createdAt": "12/21/2023, 2:21:56 PM",
+			"updatedAt": "12/21/2023, 2:21:56 PM",
+			"trainerTips": [
+				"Split the 21 thrusters as needed",
+				"Try to do the 9 and 6 thrusters unbroken",
+				"RX Weights: 115lb/75lb"
+			]
+		}
+```
+
+## Usage Examples
+
+The following examples use a base URL of `http://localhost:3000/workouts`, which is the default development server for Express.
+
+**GET /workouts**
+
+Retrieve a list of workouts:
+
+```sh
+curl http://localhost:3000/workouts
+```
+
+**GET /workouts/{workoutId}**
+
+Retrieve a single workout:
+
+```sh
+curl http://localhost:3000/workouts/61dbae02-c147-4e28-863c-db7bd402b2d6
+```
+
+**POST /workouts**
+
+Create a workout:
+
+```sh
+curl -H "Content-Type: application/json" -d '{"name":"Fredrick Mark", "mode": "For Time"}' http://localhost:3000/workouts
+```
+
+**PUT /workouts/{workoutId}**
+
+Update a workout:
+
+```sh
+curl -H "Content-Type: application/json" -X PUT -d '{"name":"Fredrick Mark", "mode": "For Time"}' http://localhost:3000/workouts/61dbae02-c147-4e28-863c-db7bd402b2d6
+```
+
+**DELETE /workouts/{workoutId}**
+
+Delete a workout:
+
+```sh
+curl -X DELETE http://localhost:3000/workouts/61dbae02-c147-4e28-863c-db7bd402b2d6
+```
